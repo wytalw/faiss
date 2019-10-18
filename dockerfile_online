@@ -1,4 +1,4 @@
-FROM python:3.74
+FROM python:3.7-buster
 
 # Install MKL
 RUN yum-config-manager --add-repo https://yum.repos.intel.com/mkl/setup/intel-mkl.repo

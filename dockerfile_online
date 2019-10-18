@@ -11,7 +11,7 @@ RUN apt-get update -y && \
 
 ENV BLASLDFLAGS /usr/lib/libopenblas.so.0
 
-RUN make -j $(nproc) && \
+RUN make -j 4 && \
     make py
 
 ENV PYTHONPATH $PYTHONPATH:/opt/faiss

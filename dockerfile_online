@@ -1,6 +1,6 @@
 from conda/miniconda3:latest
 
-RUN conda install pytorch -y
+#RUN conda install pytorch -y
 RUN conda install faiss-cpu=1.6.0 -c pytorch -y
 
 CMD [ "/bin/bash" ]

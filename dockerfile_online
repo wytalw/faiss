@@ -1,17 +1,6 @@
-FROM python:3.7-buster
+from conda/miniconda3:latest
 
-COPY . /opt/faiss
+RUN conda install pytorch -y
+RUN conda install faiss-cpu=1.6.0 -c pytorch -y
 
-WORKDIR /opt/faiss
-
-RUN apt-get update -y && \
-    apt-get install -y libopenblas-dev python-numpy python-dev swig python-pip wget && \
-    mv example_makefiles/makefile.inc.Linux ./makefile.inc && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV BLASLDFLAGS /usr/lib/libopenblas.so.0
-
-RUN make -j 4 && \
-    make py
-
-ENV PYTHONPATH $PYTHONPATH:/opt/faiss
+CMD [ "/bin/bash" ]
